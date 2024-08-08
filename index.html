@@ -49,26 +49,31 @@
 <body>
 
     <div class="tab-container">
-        <div class="tab active" onclick="showTab('tab1')">Energy Consumption vs GIA</div>
-        <div class="tab" onclick="showTab('tab2')">Energy Consumption per Area vs GIA</div>
-        <div class="tab" onclick="showTab('tab3')">Longitudinal analysis</div>
-        <div class="tab" onclick="showTab('tab4')">Backlog Risk Costs vs GIA</div>
+        <div class="tab active" onclick="showTab('tab1')">Energy consumption against ICB</div>
+        <div class="tab" onclick="showTab('tab2')">Annual energy consumption against GIA</div>
+        <div class="tab" onclick="showTab('tab3')">Area normalised annual energy consumption against GIA</div>
+        <div class="tab" onclick="showTab('tab4')">Longitudinal energy consumption</div>
+        <div class="tab" onclick="showTab('tab5')">Area normalised backlog risk costs against GIA</div>
     </div>
 
     <div id="tab1" class="tab-content active">
-        <iframe src="Energy_Consumption_vs_GIA_combined_vertical.html"></iframe>
+        <iframe src="energy_consumption_per_icb.html"></iframe>
     </div>
 
     <div id="tab2" class="tab-content">
-        <iframe src="Energy_Consumption__per_area_vs_GIA_combined_vertical.html"></iframe>
+        <iframe src="Energy_Consumption_vs_GIA_combined_vertical.html"></iframe>
     </div>
 
     <div id="tab3" class="tab-content">
-        <iframe src="combined_plots.html"></iframe>
+        <iframe src="Energy_Consumption__per_area_vs_GIA_combined_vertical.html"></iframe>
     </div>
 
     <div id="tab4" class="tab-content">
-        <iframe src="Backlog_risk_costs_vs_GIA_combined_vertical.html"></iframe>
+        <iframe src="longitudinal_energy.html"></iframe>
+    </div>
+
+    <div id="tab5" class="tab-content">
+        <iframe src="Backlog_Risk_Costs_vs_GIA.html"></iframe>
     </div>
 
     <script>
@@ -80,7 +85,7 @@
             contents.forEach(content => content.classList.remove('active'));
 
             // Add 'active' class to the clicked tab and the corresponding content
-            document.querySelector(`.tab[onclick="showTab('${tabId}')"]`).classList.add('active');
+            document.querySelector('.tab[onclick="showTab(\'' + tabId + '\')"]').classList.add('active');
             document.getElementById(tabId).classList.add('active');
         }
 
