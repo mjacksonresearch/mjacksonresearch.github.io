@@ -49,76 +49,90 @@
 <body>
 
     <div class="tab-container">
-        <div class="tab active" onclick="showTab('tab1')">DEC Building Data Summary</div>
-        <div class="tab" onclick="showTab('tab2')">Yearly energy</div>
+        <div class="tab active" onclick="showTab('tab0')">DEC Summary</div>
+        <div class="tab" onclick="showTab('tab1')">Energy 1999-2023</div>
+        <div class="tab" onclick="showTab('tab2')">Age distribution</div>
         <div class="tab" onclick="showTab('tab3')">Energy vs GIA</div>
-        <div class="tab" onclick="showTab('tab4')">Total energy map</div>
-        <div class="tab" onclick="showTab('tab5')">Elec map</div>
-        <div class="tab" onclick="showTab('tab6')">Gas map</div>
-        <div class="tab" onclick="showTab('tab7')">Age distribution</div>
+        <div class="tab" onclick="showTab('tab4')">DEC ORs by ICB</div>
+        <div class="tab" onclick="showTab('tab5')">Space use bar</div>
+        <div class="tab" onclick="showTab('tab6')">Total energy by ICB</div>
+        <div class="tab" onclick="showTab('tab7')">Maintenance risk bar</div>
         <div class="tab" onclick="showTab('tab8')">Age map</div>
-        <div class="tab" onclick="showTab('tab9')">Energy vs GIA bar</div>
-        <div class="tab" onclick="showTab('tab10')">Space use bar</div>
-        <div class="tab" onclick="showTab('tab11')">Maintenance risk bar</div>
-        <div class="tab" onclick="showTab('tab12')">Maintenance risk map</div>
-        <div class="tab" onclick="showTab('tab13')">Longitudinal energy</div>
-        <div class="tab" onclick="showTab('tab14')">Longitudinal maintenance</div>
+        <div class="tab" onclick="showTab('tab9')">Total energy map</div>
+        <div class="tab" onclick="showTab('tab10')">Elec map</div>
+        <div class="tab" onclick="showTab('tab11')">Gas map</div>
+        <div class="tab" onclick="showTab('tab12A')">Total energy change</div>
+        <div class="tab" onclick="showTab('tab12B')">Elec change</div>
+        <div class="tab" onclick="showTab('tab12C')">Gas change</div>        
+        <div class="tab" onclick="showTab('tab13')">Maintenance risk map</div>
     </div>
 
-    <div id="tab1" class="tab-content active">
-        <iframe src="DEC_sector_plot.html"></iframe>
+    <div id="tab0" class="tab-content active">
+        <iframe src="0.html"></iframe>
+    </div>
+
+    <div id="tab1" class="tab-content">
+        <iframe src="1.html"></iframe>
     </div>
 
     <div id="tab2" class="tab-content">
-        <iframe src="energy_consumption_plot.html"></iframe>
+        <iframe src="2.html"></iframe>
     </div>
 
     <div id="tab3" class="tab-content">
-        <iframe src="Energy_Consumption_vs_GIA.html"></iframe>
+        <iframe src="3.html"></iframe>
     </div>
 
     <div id="tab4" class="tab-content">
-        <iframe src="total_ICB_map.html"></iframe>
+        <iframe src="4.html"></iframe>
     </div>
 
     <div id="tab5" class="tab-content">
-        <iframe src="elec_ICB_map.html"></iframe>
+        <iframe src="5.html"></iframe>
     </div>
 
     <div id="tab6" class="tab-content">
-        <iframe src="gas_ICB_map.html"></iframe>
+        <iframe src="6.html"></iframe>
     </div>
 
     <div id="tab7" class="tab-content">
-        <iframe src="cumulative_age_of_buildings.html"></iframe>
+        <iframe src="7.html"></iframe>
     </div>
 
     <div id="tab8" class="tab-content">
-        <iframe src="age_distribution_map.html"></iframe>
+        <iframe src="8.html"></iframe>
     </div>
 
     <div id="tab9" class="tab-content">
-        <iframe src="energy_consumption_per_icb.html"></iframe>
+        <iframe src="9.html"></iframe>
     </div>
 
     <div id="tab10" class="tab-content">
-        <iframe src="space_use_per_icb.html"></iframe>
+        <iframe src="10.html"></iframe>
     </div>
 
     <div id="tab11" class="tab-content">
-        <iframe src="maintenance_costs_per_ICB.html"></iframe>
+        <iframe src="11.html"></iframe>
     </div>
 
-    <div id="tab12" class="tab-content">
-        <iframe src="CIR_ICB_map.html"></iframe>
+    <div id="tab12A" class="tab-content">
+        <iframe src="12A.html"></iframe>
+    </div>
+
+    <div id="tab12B" class="tab-content">
+        <iframe src="12B.html"></iframe>
+    </div>
+
+    <div id="tab12C" class="tab-content">
+        <iframe src="12C.html"></iframe>
     </div>
 
     <div id="tab13" class="tab-content">
-        <iframe src="longitudinal_energy_icb.html"></iframe>
+        <iframe src="13.html"></iframe>
     </div>
 
     <div id="tab14" class="tab-content">
-        <iframe src="longitudinal_maintenance_icb.html"></iframe>
+        <iframe src="14.html"></iframe>
     </div>
 
     <script>
