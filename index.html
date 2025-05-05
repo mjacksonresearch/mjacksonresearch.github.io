@@ -1,112 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>MJackson Research</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-        .menu { display: flex; background: #333; padding: 10px; color: white; }
-        .menu-item { margin-right: 10px; padding: 10px 20px; cursor: pointer; background: #555; border-radius: 5px; }
-        .menu-item.active { background: #ff5722; }
-        .tab-container { display: flex; cursor: pointer; padding: 10px; background: #f1f1f1; }
-        .tab { padding: 10px 20px; margin-right: 5px; border: 1px solid #ddd; border-radius: 5px; background: #eee; flex: 1; text-align: center; }
-        .tab.active { background: white; border-bottom: none; font-weight: bold; }
-        .tab-content, .page-content { display: none; padding: 20px; border: 1px solid #ddd; border-top: none; }
-        .tab-content.active, .page-content.active { display: block; }
-        iframe { width: 100%; border: none; height: 600px; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f9fa;
+        }
+
+        .menu {
+            display: flex;
+            background-color: #2c3e50;
+            padding: 0 20px;
+            align-items: center;
+            height: 60px;
+        }
+
+        .menu-item {
+            color: white;
+            margin-right: 15px;
+            padding: 10px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .menu-item:hover {
+            background-color: #34495e;
+        }
+
+        .menu-item.active {
+            background-color: #e67e22;
+            font-weight: bold;
+        }
+
+        .tab-container {
+            display: flex;
+            flex-wrap: wrap;
+            background: #ffffff;
+            padding: 10px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .tab {
+            padding: 10px 15px;
+            margin: 5px 5px 0 0;
+            background: #ecf0f1;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            transition: background 0.2s, border-color 0.2s;
+            font-size: 14px;
+        }
+
+        .tab:hover {
+            background: #d0dfe6;
+        }
+
+        .tab.active {
+            background: #ffffff;
+            border: 2px solid #3498db;
+            font-weight: bold;
+        }
+
+        .page-content, .tab-content {
+            display: none;
+            padding: 20px;
+            background: #ffffff;
+        }
+
+        .page-content.active, .tab-content.active {
+            display: block;
+        }
+
+        iframe {
+            width: 100%;
+            height: 650px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
     </style>
 </head>
 <body>
+
     <div class="menu">
         <div class="menu-item" onclick="showPage('mres-graphs')">MRes Graphs</div>
         <div class="menu-item active" onclick="showPage('sote')">SOTE</div>
     </div>
 
+    <!-- MRes Graphs Page -->
     <div id="mres-graphs" class="page-content">
         <div class="tab-container">
-            <div class="tab active" onclick="showTab('mres-tab0')">0</div>
-            <div class="tab" onclick="showTab('mres-tab1')">1</div>
-            <div class="tab" onclick="showTab('mres-tab2')">2</div>
-            <div class="tab" onclick="showTab('mres-tab3')">3</div>
-            <div class="tab" onclick="showTab('mres-tab4')">4</div>
-            <div class="tab" onclick="showTab('mres-tab5')">5</div>
-            <div class="tab" onclick="showTab('mres-tab6')">6</div>
-            <div class="tab" onclick="showTab('mres-tab7')">7</div>
-            <div class="tab" onclick="showTab('mres-tab8')">8</div>
-            <div class="tab" onclick="showTab('mres-tab9')">9</div>
-            <div class="tab" onclick="showTab('mres-tab10')">10</div>
-            <div class="tab" onclick="showTab('mres-tab11')">11</div>
-            <div class="tab" onclick="showTab('mres-tab12A')">12A</div>
-            <div class="tab" onclick="showTab('mres-tab12B')">12B</div>
-            <div class="tab" onclick="showTab('mres-tab12C')">12C</div>
-            <div class="tab" onclick="showTab('mres-tab13')">13</div>
+            <div class="tab active" onclick="showTab('mres-tab0')">DEC Summary</div>
+            <div class="tab" onclick="showTab('mres-tab1')">EUI</div>
+            <div class="tab" onclick="showTab('mres-tab2')">Building Ages</div>
+            <div class="tab" onclick="showTab('mres-tab3')">EUI vs GIA</div>
+            <div class="tab" onclick="showTab('mres-tab4')">ICB ORs</div>
+            <div class="tab" onclick="showTab('mres-tab5')">ICB Space Use</div>
+            <div class="tab" onclick="showTab('mres-tab6')">ICB Energy</div>
+            <div class="tab" onclick="showTab('mres-tab7')">ICB Main</div>
+            <div class="tab" onclick="showTab('mres-tab8')">ICB Age</div>
+            <div class="tab" onclick="showTab('mres-tab9')">ICB Energy Map</div>
+            <div class="tab" onclick="showTab('mres-tab10')">ICB Elec Map</div>
+            <div class="tab" onclick="showTab('mres-tab11')">ICB Gas Map</div>
+            <div class="tab" onclick="showTab('mres-tab12A')">ICB Energy Δ</div>
+            <div class="tab" onclick="showTab('mres-tab12B')">ICB Elec Δ</div>
+            <div class="tab" onclick="showTab('mres-tab12C')">ICB Gas Δ</div>
+            <div class="tab" onclick="showTab('mres-tab13')">ICB CIR Map</div>
         </div>
-    
-        <div id="mres-tab0" class="tab-content active"><iframe src="0.html"></iframe></div>
-        <div id="mres-tab1" class="tab-content"><iframe src="1.html"></iframe></div>
-        <div id="mres-tab2" class="tab-content"><iframe src="2.html"></iframe></div>
-        <div id="mres-tab3" class="tab-content"><iframe src="3.html"></iframe></div>
-        <div id="mres-tab4" class="tab-content"><iframe src="4.html"></iframe></div>
-        <div id="mres-tab5" class="tab-content"><iframe src="5.html"></iframe></div>
-        <div id="mres-tab6" class="tab-content"><iframe src="6.html"></iframe></div>
-        <div id="mres-tab7" class="tab-content"><iframe src="7.html"></iframe></div>
-        <div id="mres-tab8" class="tab-content"><iframe src="8.html"></iframe></div>
-        <div id="mres-tab9" class="tab-content"><iframe src="9.html"></iframe></div>
-        <div id="mres-tab10" class="tab-content"><iframe src="10.html"></iframe></div>
-        <div id="mres-tab11" class="tab-content"><iframe src="11.html"></iframe></div>
-        <div id="mres-tab12A" class="tab-content"><iframe src="12A.html"></iframe></div>
-        <div id="mres-tab12B" class="tab-content"><iframe src="12B.html"></iframe></div>
-        <div id="mres-tab12C" class="tab-content"><iframe src="12C.html"></iframe></div>
-        <div id="mres-tab13" class="tab-content"><iframe src="13.html"></iframe></div>
-    </div>
-    
 
+        <div id="mres-tab0" class="tab-content active"><iframe src="0.html"></iframe></div>
+        <div id="mres-tab1" class="tab-content active"><iframe src="1.html"></iframe></div>
+        <div id="mres-tab2" class="tab-content active"><iframe src="2.html"></iframe></div>
+        <div id="mres-tab3" class="tab-content active"><iframe src="3.html"></iframe></div>
+        <div id="mres-tab4" class="tab-content active"><iframe src="4.html"></iframe></div>
+        <div id="mres-tab5" class="tab-content active"><iframe src="5.html"></iframe></div>
+        <div id="mres-tab6" class="tab-content active"><iframe src="6.html"></iframe></div>
+        <div id="mres-tab7" class="tab-content active"><iframe src="7.html"></iframe></div>
+        <div id="mres-tab8" class="tab-content active"><iframe src="8.html"></iframe></div>
+        <div id="mres-tab9" class="tab-content active"><iframe src="9.html"></iframe></div>
+        <div id="mres-tab10" class="tab-content active"><iframe src="10.html"></iframe></div>
+        <div id="mres-tab11" class="tab-content active"><iframe src="11.html"></iframe></div>
+        <div id="mres-tab12A" class="tab-content active"><iframe src="12A.html"></iframe></div>
+        <div id="mres-tab12B" class="tab-content active"><iframe src="12B.html"></iframe></div>
+        <div id="mres-tab12C" class="tab-content active"><iframe src="12C.html"></iframe></div>
+        <div id="mres-tab13" class="tab-content active"><iframe src="13.html"></iframe></div>
+    </div>
+
+    <!-- SOTE Page -->
     <div id="sote" class="page-content active">
         <div class="tab-container">
             <div class="tab active" onclick="showTab('sote-tab0')">ICB Below</div>
             <div class="tab" onclick="showTab('sote-tab1')">CMB vs OR</div>
-            <div class="tab" onclick="showTab('sote-tab2')">Elec and Gas vs CMB</div>
-            <div class="tab" onclick="showTab('sote-tab3')">Elec and Gas vs OR</div>
+            <div class="tab" onclick="showTab('sote-tab2')">Elec+Gas vs CMB</div>
+            <div class="tab" onclick="showTab('sote-tab3')">Elec+Gas vs OR</div>
             <div class="tab" onclick="showTab('sote-tab4')">Elec vs Clin</div>
             <div class="tab" onclick="showTab('sote-tab5')">Total Energy Map</div>
             <div class="tab" onclick="showTab('sote-tab6')">Electricity Map</div>
             <div class="tab" onclick="showTab('sote-tab7')">Gas Map</div>
-            <div class="tab" onclick="showTab('sote-tab8')">Energy Consumption Change</div>
-            <div class="tab" onclick="showTab('sote-tab9')">Building Age Distribution</div>
+            <div class="tab" onclick="showTab('sote-tab8')">Energy Change</div>
+            <div class="tab" onclick="showTab('sote-tab9')">Building Age</div>
             <div class="tab" onclick="showTab('sote-tab10')">Maintenance Risk</div>
-            <div class="tab" onclick="showTab('sote-tab11')">Socioeconomic & Health Indicators</div>
+            <div class="tab" onclick="showTab('sote-tab11')">Socioecon & Health</div>
         </div>
 
         <div id="sote-tab0" class="tab-content active"><iframe src="ICB_below.html"></iframe></div>
-        <div id="sote-tab1" class="tab-content"><iframe src="CMBvsOR.html"></iframe></div>
-        <div id="sote-tab2" class="tab-content"><iframe src="elecandgasvsCMB.html"></iframe></div>
-        <div id="sote-tab3" class="tab-content"><iframe src="elecandgasvsOR.html"></iframe></div>
-        <div id="sote-tab4" class="tab-content"><iframe src="elecvsclin.html"></iframe></div>
-        <div id="sote-tab5" class="tab-content"><iframe src="total_energy_map.html"></iframe></div>
-        <div id="sote-tab6" class="tab-content"><iframe src="electricity_map.html"></iframe></div>
-        <div id="sote-tab7" class="tab-content"><iframe src="gas_map.html"></iframe></div>
-        <div id="sote-tab8" class="tab-content"><iframe src="energy_consumption_change_map.html"></iframe></div>
-        <div id="sote-tab9" class="tab-content"><iframe src="building_age_distribution_map.html"></iframe></div>
-        <div id="sote-tab10" class="tab-content"><iframe src="maintenance_risk_map.html"></iframe></div>
-        <div id="sote-tab11" class="tab-content"><iframe src="socioeconomic_health_indicators_map.html"></iframe></div>
+        <div id="sote-tab1" class="tab-content active"><iframe src="CMBvsOR.html"></iframe></div>
+        <div id="sote-tab2" class="tab-content active"><iframe src="elecandgasvsCMB.html"></iframe></div>
+        <div id="sote-tab3" class="tab-content active"><iframe src="elecandgasvsOR.html"></iframe></div>
+        <div id="sote-tab4" class="tab-content active"><iframe src="elecvsclin.html"></iframe></div>
+        <div id="sote-tab5" class="tab-content active"><iframe src="total_energy_map.html"></iframe></div>
+        <div id="sote-tab6" class="tab-content active"><iframe src="electricity_map.html"></iframe></div>
+        <div id="sote-tab7" class="tab-content active"><iframe src="gas_map.html"></iframe></div>
+        <div id="sote-tab8" class="tab-content active"><iframe src="energy_consumption_change_map.html"></iframe></div>
+        <div id="sote-tab9" class="tab-content active"><iframe src="building_age_distribution_map.html"></iframe></div>
+        <div id="sote-tab10" class="tab-content active"><iframe src="maintenance_risk_map.html"></iframe></div>
+        <div id="sote-tab11" class="tab-content active"><iframe src="socioeconomic_health_indicators_map.html"></iframe></div>
     </div>
 
+    <!-- JavaScript -->
     <script>
         function showPage(pageId) {
             document.querySelectorAll('.menu-item').forEach(item => item.classList.remove('active'));
             document.querySelectorAll('.page-content').forEach(page => page.classList.remove('active'));
             document.querySelector('.menu-item[onclick="showPage(\'' + pageId + '\')"]').classList.add('active');
             document.getElementById(pageId).classList.add('active');
+            
+            // Ensure first tab of each page is active on switch
+            const firstTab = document.querySelector(`#${pageId} .tab`);
+            const firstContent = document.querySelector(`#${pageId} .tab-content`);
+            if (firstTab && firstContent) {
+                showTab(firstTab.getAttribute('onclick').match(/'([^']+)'/)[1]);
+            }
         }
+
         function showTab(tabId) {
-            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-            document.querySelector('.tab[onclick="showTab(\'' + tabId + '\')"]').classList.add('active');
-            document.getElementById(tabId).classList.add('active');
+        // Remove active class from all tabs and tab contents
+        document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(content => {
+            content.classList.remove('active');
+
+            // Unload iframe to free memory
+            const iframe = content.querySelector('iframe');
+            if (iframe) content.removeChild(iframe);
+        });
+
+        // Activate selected tab
+        document.querySelector(`.tab[onclick="showTab('${tabId}')"]`).classList.add('active');
+        const targetContent = document.getElementById(tabId);
+        targetContent.classList.add('active');
+
+        // Dynamically add iframe
+        const src = targetContent.getAttribute('data-src');
+        if (src) {
+            const iframe = document.createElement('iframe');
+            iframe.src = src;
+            iframe.loading = 'lazy';
+            targetContent.appendChild(iframe);
+            }
         }
+        // Initial activation
         document.querySelector('.menu-item.active').click();
-        document.querySelector('.tab.active').click();
     </script>
 </body>
 </html>
